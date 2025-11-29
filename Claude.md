@@ -59,3 +59,94 @@ Neurodivergent women 26-40 in LATAM with high energy fluctuation.
 **Commit message format:**
 - `[AI] Add feature X` - Initial implementation by Claude
 - `[human-fix-requested] Fix issue Y` - Changes I requested
+
+---
+
+## AI Tools Strategy
+
+### Daily Workflow:
+
+**Morning Planning - Claude AI Assistant (Opus via web/app):**
+- High-level feature planning
+- Architecture decisions
+- Pomodoro structure for the day
+- Break down large features into tasks
+- Output: Detailed plan/prompt to share with Claude Code
+
+**Implementation - Claude Code CLI:**
+- Receive plan from Claude AI Assistant
+- Implement features following the plan
+- Commit with `[AI]` tag
+- Handle medium-sized features
+
+**Quick Fixes - Claude Code Desktop:**
+- Small features and bug fixes
+- Visual debugging with file diffs
+- Interactive iterations
+- Commit with appropriate tags
+
+**Manual Review/Fixes - Cursor AI:**
+- Manual code corrections while developing
+- Real-time pair programming
+- Agent reviewer for code quality
+- Quick inline edits
+
+### Tool Selection Guide:
+
+```
+Morning:
+┌─────────────────────────────────────────┐
+│ Claude AI Assistant (Opus)              │
+│ "Plan today: History view + charts"    │
+│ → Generates detailed implementation    │
+│   plan with architecture decisions     │
+└─────────────────────────────────────────┘
+                    ↓
+              Share prompt
+                    ↓
+Implementation:
+┌─────────────────────────────────────────┐
+│ Claude Code CLI                         │
+│ Paste plan: "Implement history view    │
+│ following this plan: [paste]"          │
+│ → Fast implementation                   │
+│ → Commits with [AI] tag                 │
+└─────────────────────────────────────────┘
+                    ↓
+           git pull on Mac
+                    ↓
+Testing & Fixes:
+┌─────────────────────────────────────────┐
+│ Me: Test in Expo Go                     │
+│ If bugs: Claude Code Desktop for fixes │
+│ If small tweaks: Cursor AI directly     │
+└─────────────────────────────────────────┘
+```
+
+### When to Use What:
+
+**Claude AI Assistant (Opus) - Planning:**
+- ✅ Start of day planning
+- ✅ Complex feature architecture
+- ✅ Technical decision analysis
+- ✅ Breaking down large features
+- ❌ No code execution (planning only)
+
+**Claude Code CLI - Implementation:**
+- ✅ Implement plans from Claude AI
+- ✅ Medium features (3-10 files)
+- ✅ When already in terminal workflow
+- ✅ Scripting and automation
+- ⚡ Fast for following clear plans
+
+**Claude Code Desktop - Fixes:**
+- ✅ Small features (1-3 files)
+- ✅ Bug fixes with visual debugging
+- ✅ Interactive problem solving
+- ✅ When you need to see diffs visually
+
+**Cursor AI - Manual Work:**
+- ✅ Real-time coding assistance
+- ✅ Quick inline corrections
+- ✅ Code review with agents
+- ✅ Manual refinements while testing
