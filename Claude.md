@@ -37,21 +37,25 @@ Neurodivergent women 26-40 in LATAM with high energy fluctuation.
 
 ## Workflow Rules
 
-### Since we work in different environments (Claude in container, me on Mac local):
+### Git Workflow (Claude in container, me on Mac local):
 
-**Option 1 - Code Review Flow (preferred):**
-1. Claude commits and pushes changes to the branch
-2. Claude provides a human-readable summary of what changed
-3. I do `git pull` to see the changes on my Mac
-4. I review in Cursor, test in Expo Go
-5. If I need changes, I request them and Claude makes another commit
+**Claude CAN:**
+- Make commits and push to feature branches (claude/*)
+- Use commit tags: `[AI]` for new implementations, `[human-fix-requested]` for fixes I ask for
+- Provide human-readable summaries of changes after each commit
 
-**Option 2 - Manual Implementation:**
-1. Claude shows me the complete code in chat
-2. I implement it myself on my Mac
-3. I commit when ready
+**Claude CANNOT:**
+- NEVER commit or push to `main` branch
+- NEVER commit or push to `dev` branch
+- These branches are protected - I handle PRs and merges
 
-**Always:**
-- Summarize changes in human language, not just code diffs
-- Explain the "why" behind decisions
-- I'm the final reviewer, but Claude can commit directly to speed up iteration
+**My workflow:**
+1. Claude commits to feature branch with proper tag
+2. I do `git pull` on my Mac to review
+3. I test in Expo Go and Cursor
+4. If changes needed, I request fixes → Claude makes `[human-fix-requested]` commit
+5. When satisfied, I create PR and merge to dev/main myself
+
+**Commit message format:**
+- `[AI] Add feature X` - Initial implementation by Claude
+- `[human-fix-requested] Fix issue Y` - Changes I requested
