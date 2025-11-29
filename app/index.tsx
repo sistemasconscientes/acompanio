@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import { Text, Button, Surface, useTheme } from 'react-native-paper';
+import { useMoodStore } from '../store/moodStore';
 
 const EMOTIONS = [
   { emoji: '😊', label: 'Feliz' },
@@ -15,6 +16,7 @@ const ENERGY_LEVELS = [1, 2, 3, 4, 5];
 
 export default function CheckInScreen() {
   const theme = useTheme();
+  const addCheckIn = useMoodStore((state) => state.addCheckIn);
   const [energy, setEnergy] = useState<number | null>(null);
   const [selectedEmotions, setSelectedEmotions] = useState<string[]>([]);
 
@@ -28,8 +30,9 @@ export default function CheckInScreen() {
 
   const handleSave = () => {
     if (energy && selectedEmotions.length > 0) {
+      // Save to AsyncStorage via Zustand
+      addCheckIn(energy, selectedEmotions);
       console.log('Check-in saved:', { energy, emotions: selectedEmotions, date: new Date() });
-      // TODO: Save to AsyncStorage with Zustand
       alert('¡Check-in guardado! 💜');
       setEnergy(null);
       setSelectedEmotions([]);
@@ -163,23 +166,25 @@ const styles = StyleSheet.create({
   emotionsGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 12,
+    gap: 8,
+    justifyContent: 'space-between',
   },
   emotionButton: {
-    width: '30%',
+    width: '31%',
     borderRadius: 12,
-    minWidth: 100,
   },
   emotionButtonContent: {
-    height: 80,
-    paddingVertical: 8,
+    height: 96,
+    paddingVertical: 12,
+    paddingHorizontal: 4,
   },
   emoji: {
-    fontSize: 28,
+    fontSize: 32,
+    lineHeight: 36,
   },
   emotionLabel: {
     fontSize: 11,
-    marginTop: 4,
+    marginTop: 6,
   },
   saveButton: {
     marginTop: 8,
