@@ -66,8 +66,8 @@ Neurodivergent women 26-40 in LATAM with high energy fluctuation.
 
 ### Daily Workflow:
 
-**Morning Planning - Claude AI Assistant (Opus via web/app):**
-- High-level feature planning
+**Early Planning - Claude AI Assistant (Opus via web/app):**
+- High-level feature planning (CTO/CPO assistant roles helps here)
 - Architecture decisions
 - Pomodoro structure for the day
 - Break down large features into tasks
@@ -94,7 +94,7 @@ Neurodivergent women 26-40 in LATAM with high energy fluctuation.
 ### Tool Selection Guide:
 
 ```
-Morning:
+Early:
 ┌─────────────────────────────────────────┐
 │ Claude AI Assistant (Opus)              │
 │ "Plan today: History view + charts"    │
