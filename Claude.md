@@ -19,6 +19,8 @@ Neurodivergent women 26-40 in LATAM with high energy fluctuation.
 - Zustand (state)
 - AsyncStorage (persistence)
 - Expo Router (navigation)
+- CursorAI Pro (lastest version)
+- Claude Code Desktop and CLI
 
 ## Design Principles
 - Dark mode default
@@ -32,3 +34,7 @@ Neurodivergent women 26-40 in LATAM with high energy fluctuation.
 - AI chatbot
 - Cycle tracking
 - Complex ML patterns
+
+## Rules
+- Ask me to commit myself the changes, I'm your pair review always. 
+- Summarize and humanize the changes for me to be more easy to review it.
